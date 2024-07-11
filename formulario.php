@@ -1,30 +1,35 @@
 <?php
-// Recoge los datos del formulario
-$nombre = $_POST['name'];
-$email = $_POST['email'];
-$mensaje = $_POST['message'];
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-// Dirección de correo a donde se enviará el mensaje
-$destinatario = "anahicornejo40@gmail.com";
+require 'vendor/autoload.php'; // Cargar PHPMailer
 
-// Asunto del correo
-$asunto = "Mensaje de contacto desde tu sitio web";
+// Instanciar PHPMailer
+$mail = new PHPMailer(true);
 
-// Cuerpo del mensaje
-$cuerpoMensaje = "Nombre: $nombre\n";
-$cuerpoMensaje .= "Email: $email\n\n";
-$cuerpoMensaje .= "Mensaje:\n$message\n";
+try {
+    // Configuración del servidor SMTP
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.example.com'; // Servidor SMTP
+    $mail->SMTPAuth   = true;               // Autenticación SMTP
+    $mail->Username   = 'clinicaveterinariazadel@gmail.com'; // Correo electrónico SMTP
+    $mail->Password   = 'zadel2003';   // Contraseña SMTP
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Tipo de cifrado TLS
+    $mail->Port       = 587;                // Puerto SMTP
 
-// Cabeceras del correo
-$headers = "From: $email\r\n";
-$headers .= "Reply-To: $email\r\n";
+    // Destinatario y remitente
+    $mail->setFrom('tu_correo@example.com', 'Tu Nombre');
+    $mail->addAddress('clinicaveterinariazadel@gmail.com', 'Clinica veterinaria'); // A quien enviar
 
-// Envío del correo
-mail($destinatario, $asunto, $cuerpoMensaje, $headers);
+    // Contenido del correo
+    $mail->isHTML(true);  // Establecer el formato de correo electrónico a HTML
+    $mail->Subject = 'Asunto del correo';
+    $mail->Body    = 'Este es el cuerpo del mensaje HTML';
 
-// Redirecciona o muestra un mensaje de confirmación
-echo "¡Gracias! Tu mensaje ha sido enviado.";
-
-// Puedes redirigir a una página de confirmación
-// header("Location: gracias.html");
+    // Enviar correo
+    $mail->send();
+    echo 'Correo enviado correctamente.';
+} catch (Exception $e) {
+    echo "Error al enviar el correo: {$mail->ErrorInfo}";
+}
 ?>
