@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario de Contacto</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    emailjs.init('-Elq-U_ICKKBEfgna'); // Reemplaza con tu User ID de EmailJS
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Envíanos un Mensaje</h1>
+    <form id="form">
+      <div class="field">
+        <label for="from_name">Nombre:</label>
+        <input type="text" name="from_name" id="from_name" required>
+      </div>
+      <div class="field">
+        <label for="to_name">Para:</label>
+        <input type="text" name="to_name" id="to_name" required>
+      </div>
+      <div class="field">
+        <label for="message">Mensaje:</label>
+        <textarea name="message" id="message" rows="4" required></textarea>
+      </div>
+      <div class="field">
+        <label for="email_id">Correo Electrónico:</label>
+        <input type="email" name="email_id" id="email_id" required>
+      </div>
+      <input type="submit" id="button" value="Enviar Correo">
+    </form>
+    <div id="message-container" class="hidden">
+      <p id="message-text"></p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    document.getElementById('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const fromName = document.getElementById('from_name').value;
+      const toName = document.getElementById('to_name').value;
+      const message = document.getElementById('message').value;
+      const emailID = document.getElementById('email_id').value;
+
+      // Guardar el mensaje en el local storage
+      localStorage.setItem('emailData', JSON.stringify({
+        fromName: fromName,
+        toName: toName,
+        message: message,
+        emailID: emailID
+      }));
+
+      sendEmail();
+    });
+
+    function sendEmail() {
+      const emailData = JSON.parse(localStorage.getItem('emailData'));
+
+      const serviceID = 'service_1utu2sl'; // Reemplaza con tu Service ID
+      const templateID = 'template_1axqmjx'; // Reemplaza con tu Template ID
+
+      emailjs.send(serviceID, templateID, {
+        from_name: emailData.fromName,
+        to_name: emailData.toName,
+        message: emailData.message,
+        email_id: emailData.emailID
+      })
+      .then(function(response) {
+        showSuccessMessage('Correo enviado exitosamente.');
+        console.log('Correo enviado exitosamente:', response.status, response.text);
+      }, function(error) {
+        showErrorMessage('Error al enviar el correo.');
+        console.error('Error al enviar el correo:', error);
+      });
+    }
+
+    function showSuccessMessage(message) {
+      const messageContainer = document.getElementById('message-container');
+      const messageText = document.getElementById('message-text');
+      messageText.textContent = message;
+      messageContainer.classList.remove('hidden');
+      messageContainer.classList.add('success');
+    }
+
+    function showErrorMessage(message) {
+      const messageContainer = document.getElementById('message-container');
+      const messageText = document.getElementById('message-text');
+      messageText.textContent = message;
+      messageContainer.classList.remove('hidden');
+      messageContainer.classList.add('error');
+    }
+  </script>
+
+  <style>
+    .hidden {
+      display: none;
+    }
+    .success {
+      color: green;
+      font-weight: bold;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</body>
+</html>

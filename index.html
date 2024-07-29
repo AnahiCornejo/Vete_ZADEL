@@ -83,6 +83,52 @@
             height: auto;
             object-fit: cover; /* Ajusta el tamaño de la imagen y la recorta según el contenedor */
         }
+        /* Estilos para los botones de contacto */
+        .button {
+            display: inline-flex;
+            align-items: center;
+            font-size: 18px;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+            justify-content: center;
+        }
+        .button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        .button.facebook {
+            background-color: #1E88E5; /* Color azul medio */
+        }
+        .button.facebook:hover {
+            background-color: #1565C0;
+            transform: translateY(-2px);
+        }
+        .button.whatsapp {
+            background-color: #42A5F5; /* Color azul más claro */
+        }
+        .button.whatsapp:hover {
+            background-color: #2196F3;
+            transform: translateY(-2px);
+        }
+        .button.email {
+            background-color: #0288D1; /* Color azul */
+        }
+        .button.email:hover {
+            background-color: #0277BD;
+            transform: translateY(-2px);
+        }
+        .footer {
+            background-color: #0D47A1; /* Color azul oscuro */
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -94,7 +140,6 @@
                 <li><a href="#services">Servicios</a></li>
                 <li><a href="#about">Sobre Nosotros</a></li>
                 <li><a href="#contact">Contacto</a></li>
-                <!-- Se corrigió el cierre de la etiqueta de Publicidad -->
                 <li><a href="#advertising">Publicidad</a></li>
             </ul>
         </nav>
@@ -118,9 +163,8 @@
             </ul>
         </section>
 
-        <!-- Se cambió la clase de advertising por una sección más apropiada para mantener el diseño consistente -->
         <section id="advertising" class="advertising">
-            <img src="https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/363350748_776806521111779_7017673132583058657_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ekBttX4eNeYQ7kNvgFwqHNq&_nc_ht=scontent.fmex45-1.fna&oh=00_AYBX5oOnJ1hz7yJ9u38x-xM6SMgThVIiDmThR_DChIWrBg&oe=66960224" height="600px" weight="600px"></img>
+            <img src="https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/363350748_776806521111779_7017673132583058657_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ekBttX4eNeYQ7kNvgFwqHNq&_nc_ht=scontent.fmex45-1.fna&oh=00_AYBX5oOnJ1hz7yJ9u38x-xM6SMgThVIiDmThR_DChIWrBg&oe=66960224" alt="Publicidad" height="600px" width="600px">
         </section>
 
         <section id="about" class="about">
@@ -129,27 +173,26 @@
                 En la Clínica Veterinaria nos apasiona el bienestar de los animales. Contamos con un equipo de veterinarios expertos y apasionados por la salud de tus mascotas.</p>
         </section>
 
-        <html lang="es">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Formulario de Contacto</title>
-            </head>
-            <body>
-            
-            <form action="enviar_correo.php" method="POST">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
-            
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            
-                <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            
-                <button type="submit">Enviar</button>
-            </form>
+        <section id="contact" class="contact">
+            <h2>¡Estamos Aquí para Ayudarte!</h2>
+            <p>Selecciona una de las siguientes opciones para contactarnos o seguirnos:</p>
+            <a href="https://www.facebook.com/profile.php?id=100063473142137&mibextid=JRoKGi" target="_blank" class="button facebook">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+                Visitar Página de Facebook
+            </a>
+            <a href="https://wa.me/7721107451?text=Hola,%20quiero%20más%20información" target="_blank" class="button whatsapp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+                Enviar Mensaje de WhatsApp
+            </a>
+            <a href="mailto:clinicaveterinariazadel@gmail.com?subject=Consulta" class="button email">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.svg" alt="Gmail Logo">
+                Enviar Correo Electrónico
+            </a>
         </section>
+    </div>
+
+    <div class="footer">
+        © 2024 Clínica Veterinaria - Todos los derechos reservados
     </div>
 
 </body>
