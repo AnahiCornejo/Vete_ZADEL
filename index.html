@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clínica Veterinaria</title>
+    <title>ZADEL</title>
+    <link rel="icon" href="https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/305465019_520084753450625_5877418553847042405_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeE_gruYtPEN9EwidLVkuDUyv8yAvAgz1ji_zIC8CDPWOAOnhOteSmawa7BSZ-Kp_f_9zRkrSR5K2q5Qvol6Oi5h&_nc_ohc=9oV2ztI0IjkQ7kNvgEeybm2&_nc_ht=scontent.fmex45-1.fna&oh=00_AYDoVcMGuHSgru52KBQc5eaK6OcMv9EsA0esW_BEMZ270A&oe=66B2339F" type="image/x-icon">
     <style>
         /* Estilos generales */
         body {
@@ -37,14 +38,14 @@
             padding: 20px;
         }
         /* Estilos para la sección de servicios, sobre nosotros y contacto */
-        .services, .about, .contact {
+        .services, .about, .contact, .advertising, .location {
             background-color: white;
             margin: 20px 0;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .services h2, .about h2, .contact h2 {
+        .services h2, .about h2, .contact h2, .advertising h2, .location h2 {
             color: #007bb5;
         }
         .contact form {
@@ -129,6 +130,42 @@
             font-size: 16px;
             text-align: center;
         }
+        /* Estilos para el carrusel */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+        .nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        .nav button:hover {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -141,6 +178,7 @@
                 <li><a href="#about">Sobre Nosotros</a></li>
                 <li><a href="#contact">Contacto</a></li>
                 <li><a href="#advertising">Publicidad</a></li>
+                <li><a href="#location">Ubicación</a></li>
             </ul>
         </nav>
     </header>
@@ -157,47 +195,87 @@
                 <li>Consultas generales</li>
                 <li>Vacunación</li>
                 <li>Cirugía</li>
-                <li>Profilaxis dental.</li>
-                <li>Consultas a domicilio.</li>
-                <li>Alimentos y accesorios.</li>
+                <li>Profilaxis dental</li>
+                <li>Consultas a domicilio</li>
+                <li>Alimentos y accesorios</li>
             </ul>
         </section>
 
         <section id="advertising" class="advertising">
-            <img src="https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/363350748_776806521111779_7017673132583058657_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=ekBttX4eNeYQ7kNvgFwqHNq&_nc_ht=scontent.fmex45-1.fna&oh=00_AYBX5oOnJ1hz7yJ9u38x-xM6SMgThVIiDmThR_DChIWrBg&oe=66960224" alt="Publicidad" height="600px" width="600px">
+            <h2>Publicidad</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <img src="https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/305465019_520084753450625_5877418553847042405_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeE_gruYtPEN9EwidLVkuDUyv8yAvAgz1ji_zIC8CDPWOAOnhOteSmawa7BSZ-Kp_f_9zRkrSR5K2q5Qvol6Oi5h&_nc_ohc=9oV2ztI0IjkQ7kNvgEeybm2&_nc_ht=scontent.fmex45-1.fna&oh=00_AYDoVcMGuHSgru52KBQc5eaK6OcMv9EsA0esW_BEMZ270A&oe=66B2339F" alt="Publicidad 1" class="ad">
+                    <img src="https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/340691231_144933738274987_5979009820426084080_n.jpg?stp=dst-jpg_p600x600&_nc_cat=110&ccb=1-7&_nc_sid=5b7eaf&_nc_eui2=AeEf_iIv_60WsguB91wTfVVyZoyYorC0pD13aGHMk0I2AGKCDHnGYN3tOAoDQ7KePSyxu3dNkZ6N63Dl9e9DLRtx&_nc_ohc=VnR7z2xeSwYQ7kNvgJIN1ED&_nc_ht=scontent.fmex45-1.fna&oh=00_AfDiZ81QyCkpTGyH4ed8XzCDo6g1VtFheJXii0g28pZnvw&oe=66B23958" alt="Publicidad 2" class="ad">
+                </div>
+                <div class="nav">
+                    <button class="prev">&lt;</button>
+                    <button class="next">&gt;</button>
+                </div>
+            </div>
         </section>
 
         <section id="about" class="about">
             <h2>Sobre Nosotros</h2>
-            <p>"El amor por los animales guía cada paso del veterinario en su misión de cuidado y compasión."
-                En la Clínica Veterinaria nos apasiona el bienestar de los animales. Contamos con un equipo de veterinarios expertos y apasionados por la salud de tus mascotas.</p>
+            <p>Somos una clínica veterinaria dedicada al cuidado integral de las mascotas. Contamos con un equipo de profesionales altamente calificados y apasionados por la salud y el bienestar animal. Nuestra misión es proporcionar la mejor atención veterinaria posible, utilizando tecnología avanzada y un enfoque compasivo.</p>
         </section>
 
         <section id="contact" class="contact">
-            <h2>¡Estamos Aquí para Ayudarte!</h2>
-            <p>Selecciona una de las siguientes opciones para contactarnos o seguirnos:</p>
-            <a href="https://www.facebook.com/profile.php?id=100063473142137&mibextid=JRoKGi" target="_blank" class="button facebook">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
-                Visitar Página de Facebook
-            </a>
-            <a href="https://wa.me/7721107451?text=Hola,%20quiero%20más%20información" target="_blank" class="button whatsapp">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
-                MVZ. Araceli Ramirez Barrientos
-            </a>
-            <a href="https://wa.me/6751126441?text=Hola,%20quiero%20más%20información" target="_blank" class="button whatsapp">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
-                Numero secundario.
-            </a>
-            <a href="mailto:clinicaveterinariazadel@gmail.com?subject=Consulta" class="button email">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.svg" alt="Gmail Logo">
-                Enviar Correo Electrónico
+          <h2>¡Estamos Aquí para Ayudarte!</h2>
+          <p>Selecciona una de las siguientes opciones para contactarnos o seguirnos:</p>
+          <a href="https://www.facebook.com/profile.php?id=100063473142137&mibextid=JRoKGi" target="_blank" class="button facebook">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+              Visitar Página de Facebook
+          </a>
+          <a href="https://wa.me/7721107451?text=Hola,%20quiero%20más%20información" target="_blank" class="button whatsapp">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+              MVZ. Araceli Ramirez Barrientos.
+          </a>
+          <a href="https://wa.me/6751126441?text=Hola,%20quiero%20más%20información" target="_blank" class="button whatsapp">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
+              Número secundario.   
+          </a>
+          <a href="mailto:clinicaveterinariazadel@gmail.com?subject=Consulta" class="button email">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.svg" alt="Gmail Logo">
+             Correo Electrónico ZADEL.
+          </a>
+      </section>
+
+        <section id="location" class="location">
+            <h2>Ubicación</h2>
+            <p>Encuéntranos en la siguiente dirección:</p>
+            <p>Av. Vicente Guerrero 5, Centro, 1ra Demarcación Poniente, 42700 Mixquiahuala, Hgo.</p>
+            <a href="https://www.google.com/maps/place/20%C2%B013'39.7%22N+99%C2%B012'52.0%22W/@20.2276936,-99.2170067,732m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d20.2276936!4d-99.2144318?entry=ttu" class="button location">
+                <img src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=VoHnMcaGeiIThYmqYUrkOg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=2.8105671&pitch=0&thumbfov=100" alt="Google Maps">
+                Ver en Google Maps
             </a>
         </section>
     </div>
 
-    <div class="footer">
-        © 2024 Clínica Veterinaria - Todos los derechos reservados
-    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Clínica Veterinaria ZADEL. Todos los derechos reservados.</p>
+    </footer>
 
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        let index = 0;
+
+        function showAd(index) {
+            const translateX = -index * 100;
+            carousel.style.transform = `translateX(${translateX}%)`;
+        }
+
+        prevButton.addEventListener('click', () => {
+            index = (index > 0) ? index - 1 : carousel.children.length - 1;
+            showAd(index);
+        });
+
+        nextButton.addEventListener('click', () => {
+            index = (index < carousel.children.length - 1) ? index + 1 : 0;
+            showAd(index);
+        });
+    </script>
 </body>
 </html>
